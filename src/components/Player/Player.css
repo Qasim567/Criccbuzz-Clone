@@ -1,0 +1,90 @@
+.container {
+  background-color: white;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search {
+  width: 300px;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.custombtn {
+  padding: 10px 20px;
+  border: none;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.player-info {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.player-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.player-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.player-basic-info {
+  flex: 1;
+}
+
+.player-details, .career-info {
+  margin-bottom: 20px;
+}
+.abc{
+  display: flex;
+  flex-direction: row;
+}
+
+.personal-info, .icc-rankings, .career-info {
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.rankings-table {
+  width: 30%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.rankings-table th, .rankings-table td {
+  padding: 5px 10px;
+  /* border: 1px solid #ccc; */
+}
+
+.rankings-table th {
+  background-color: lightgray;
+}
+
+.rankings-table td {
+  text-align: center;
+}
+.career-info{
+  width:80%
+}
