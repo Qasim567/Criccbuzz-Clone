@@ -96,7 +96,7 @@ export default function Matches() {
                               </li>
                               <li style={{ color: 'red' }}>{match.matchInfo.status}</li>
                             </ul>
-                            <Link className='link'>Full Commentary</Link>
+                            <Link className='link' to={`/commentry/${match.matchInfo.matchId}`}>Full Commentary</Link>
                             <Link className='link mx-2' to={`/scoreboard/${match.matchInfo.matchId}`}>Scoreboard</Link>
                           </div>
                         </div>
