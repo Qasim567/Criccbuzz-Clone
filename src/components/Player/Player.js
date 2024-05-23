@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Player = () => {
+  const apikey=process.env.REACT_APP_API_KEY
   const [searchText, setSearchText] = useState('');
   const [players, setPlayers] = useState([]);
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Player = () => {
         url: 'https://unofficial-cricbuzz.p.rapidapi.com/players/search',
         params: { plrN: searchText },
         headers: {
-          'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
+          'X-RapidAPI-Key': apikey,
           'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
         }
       };

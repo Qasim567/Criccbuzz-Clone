@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Rankings.css';
 
 export default function MenRanking() {
+  const apikey=process.env.REACT_APP_API_KEY
   const [rankings, setRankings] = useState([]);
   const [format, setFormat] = useState('test');
   const [category, setCategory] = useState('batsmen');

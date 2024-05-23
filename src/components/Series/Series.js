@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Series.css';
 
 export default function Series() {
+  const apikey=process.env.REACT_APP_API_KEY
   const [archives, setArchives] = useState([]);
   const [seriesState, setSeriesState] = useState('international');
 
@@ -19,7 +20,7 @@ export default function Series() {
           matchType: matchType
         },
         headers: {
-          'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
+          'X-RapidAPI-Key': apikey,
           'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
         }
       };

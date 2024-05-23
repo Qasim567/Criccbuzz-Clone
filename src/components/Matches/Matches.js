@@ -4,8 +4,10 @@ import './Matches.css';
 import { Link } from 'react-router-dom';
 
 export default function Matches() {
+  const apikey=process.env.REACT_APP_API_KEY
   const [matches, setMatches] = useState([]);
-  const [matchState, setMatchState] = useState('recent');
+  const [matchState, setMatchState] = useState('live');
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async (selectedMatchState) => {
     const options = {
@@ -13,16 +15,19 @@ export default function Matches() {
       url: 'https://unofficial-cricbuzz.p.rapidapi.com/matches/list',
       params: { matchState: selectedMatchState },
       headers: {
-        'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
+        'X-RapidAPI-Key': apikey,
         'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
       }
     };
 
     try {
+      setLoading(true);
       const response = await axios.request(options);
       setMatches(response.data.typeMatches);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -36,6 +41,10 @@ export default function Matches() {
       result.push(array.slice(i, i + size));
     }
     return result;
+  };
+
+  const hasNoLiveMatches = () => {
+    return matchState === 'live' && (!matches || matches.length === 0);
   };
 
   return (
@@ -61,9 +70,11 @@ export default function Matches() {
           Upcoming
         </button>
       </div>
-      {matches.map((matchType, matchTypeIndex) => (
+      {loading && <h5 className='text-center'><b>Loading matches...</b></h5>}
+      {hasNoLiveMatches() && <p className='my-4'>There are no live matches at the moment. Please check back later.</p>}
+      {!loading && matches && matches.map((matchType, matchTypeIndex) => (
         <div className="my-4" key={matchTypeIndex}>
-          {matchType.seriesAdWrapper.map((seriesWrapper, seriesWrapperIndex) => (
+          {matchType.seriesAdWrapper && matchType.seriesAdWrapper.map((seriesWrapper, seriesWrapperIndex) => (
             seriesWrapper.seriesMatches && (
               <div key={seriesWrapperIndex}>
                 {chunkArray(seriesWrapper.seriesMatches.matches, 3).map((matchRow, rowIndex) => (
@@ -96,11 +107,13 @@ export default function Matches() {
                               </li>
                               <li style={{ color: 'red' }}>{match.matchInfo.status}</li>
                             </ul>
-                            <Link className='link' to={`/commentry/${match.matchInfo.matchId}`}>Full Commentary</Link>
-                            <Link className='link mx-2' to={`/scoreboard/${match.matchInfo.matchId}`}>Scoreboard</Link>
+                            {/* <Link className='link' to={`/commentary/${match.matchInfo.matchId}`}>Full Commentary</Link> */}
+                            <Link className='link' to={`/scoreboard/${match.matchInfo.matchId}`}>Scoreboard</Link>
+                            <Link className='link mx-2' to={`/matchinfo/${match.matchInfo.matchId}`}>Match Info</Link>
                           </div>
                         </div>
                       </div>
+
                     ))}
                   </div>
                 ))}

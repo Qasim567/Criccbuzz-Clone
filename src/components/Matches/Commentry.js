@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-export default function Commentary () {
+const Commentary = () => {
   const { matchId } = useParams();
   const [commentaryData, setCommentaryData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ export default function Commentary () {
         url: 'https://unofficial-cricbuzz.p.rapidapi.com/matches/get-commentaries',
         params: { matchId },
         headers: {
-          'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
+          'X-RapidAPI-Key': '9d5ecbf72fmsh80034365670a1d2p1317c3jsna96cf5494285',
           'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
         }
       };
@@ -33,7 +33,7 @@ export default function Commentary () {
     fetchCommentaryData();
   }, [matchId]);
 
-  if (loading) return <div className='my-4'>Loading...</div>;
+  if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
@@ -43,14 +43,12 @@ export default function Commentary () {
         <div>
           <h2>Match Status: {commentaryData.matchHeaders.status}</h2>
           <h3>{commentaryData.matchHeaders.matchDesc}</h3>
-          <p>
-            {commentaryData.matchHeaders.teamDetails.batTeamName} vs {commentaryData.matchHeaders.teamDetails.bowlTeamName}
-          </p>
+          {/* <h3>{commentaryData.matchHeaders.momPlayer.player[0].name}</h3> */}
           <h4>Commentary:</h4>
-          <ul>
-            {commentaryData.commentaryLines.map((line, index) => (
-              <li key={index}>
-                {new Date(parseInt(line.commentary.timestamp)).toLocaleTimeString()}: {line.commentary.commtxt}
+          <ul className='list-group'>
+            {commentaryData.commentaryLines.map((lines,Index) => (
+              <li className='list-group-item' key={Index}>
+               {lines.commentary.commtxt}
               </li>
             ))}
           </ul>
@@ -59,3 +57,5 @@ export default function Commentary () {
     </div>
   );
 };
+
+export default Commentary;

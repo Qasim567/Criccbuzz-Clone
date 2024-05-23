@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 export default function Scoreboard() {
     const { matchId } = useParams();
+    const apikey=process.env.REACT_APP_API_KEY
     const [scoreData, setScoreData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -16,14 +17,13 @@ export default function Scoreboard() {
                 url: 'https://unofficial-cricbuzz.p.rapidapi.com/matches/get-scorecard',
                 params: { matchId },
                 headers: {
-                    'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
+                    'X-RapidAPI-Key': apikey,
                     'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
                 }
             };
 
             try {
                 const response = await axios.request(options);
-                console.log("API Response:", response.data);
                 setScoreData(response.data);
                 setLoading(false);
             } catch (error) {
@@ -35,7 +35,7 @@ export default function Scoreboard() {
 
         fetchData();
     }, [matchId]);
-
+    
     if (loading) {
         return <div className='my-4'>Loading...</div>;
     }
@@ -44,8 +44,8 @@ export default function Scoreboard() {
         return <div>Error: {error.message}</div>;
     }
 
-    if (!scoreData) {
-        return <div>No data available</div>;
+    if (!scoreData || !scoreData.scorecard || scoreData.scorecard.length === 0) {
+        return <div className='my-4'>There is no scorecard available for this match</div>;
     }
 
     return (

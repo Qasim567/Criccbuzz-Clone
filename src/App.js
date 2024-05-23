@@ -1,7 +1,8 @@
 import Navbar from './components/Navbar/Navbar';
 import Matches from './components/Matches/Matches';
 import Scoreboard from './components/Matches/Scoreboard';
-import Commentary from './components/Matches/Commentry';
+import MatchInfo from './components/Matches/MatchInfo';
+// import Commentary from './components/Matches/Commentry';
 import Series from './components/Series/Series';
 import Player from './components/Player/Player';
 import PlayerDetail from './components/Player/PlayerDetail'
@@ -16,7 +17,8 @@ function App() {
     <Routes>
       <Route exact path='/' element={<Matches/>}></Route>
       <Route exact path="/scoreboard/:matchId" element={<Scoreboard/>}></Route>
-      <Route exact path="/commentry/:matchId" element={<Commentary/>}></Route>
+      <Route exact path="/matchinfo/:matchId" element={<MatchInfo/>}></Route>
+      {/* <Route exact path="/commentry/:matchId" element={<Commentary/>}></Route> */}
       <Route exact path='/series' element={<Series/>}></Route>
       <Route exact path='/player' element={<Player/>}></Route>
       <Route exact path="/player/:id" element={<PlayerDetail />} />

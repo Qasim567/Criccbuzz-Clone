@@ -5,6 +5,7 @@ import "./Player.css";
 
 const PlayerDetail = () => {
   const { id } = useParams();
+  const apikey=process.env.REACT_APP_API_KEY
   const [playerData, setPlayerData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -19,7 +20,7 @@ const PlayerDetail = () => {
       const response = await axios.get('https://unofficial-cricbuzz.p.rapidapi.com/players/get-info', {
         params: { playerId: id },
         headers: {
-          'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
+          'X-RapidAPI-Key': apikey,
           'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
         }
       });
