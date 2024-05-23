@@ -32,6 +32,7 @@ export default function MatchInfo () {
         <div>
           <h2 className='bg-dark text-white'><span className='mx-3'>Match Info</span></h2>
           <table>
+            <tbody>
             <tr>
                 <td><b>Match:</b></td>
                 <td>{matchData.team1.teamName} vs {matchData.team2.teamName}, {matchData.matchDesc}, {matchData.seriesName}</td>
@@ -60,9 +61,11 @@ export default function MatchInfo () {
                 <td><b>Referee:</b></td>
                 <td>{matchData.referee.name || '- -'}</td>
             </tr>
+            </tbody>
           </table>
           <h2 className='bg-dark text-white my-3'><span className='mx-3'>Venue Guide</span></h2>
           <table>
+            <tbody>
             <tr>
                 <td><b>Stadium:</b></td>
                 <td>{matchData.venueInfo.ground}</td>
@@ -83,6 +86,7 @@ export default function MatchInfo () {
                 <td><b>Hosts to:</b></td>
                 <td>{matchData.venueInfo.country}</td>
             </tr>
+            </tbody>
           </table>
         </div>
       ) : (

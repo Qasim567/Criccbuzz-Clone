@@ -26,6 +26,34 @@
     text-decoration: none;
   }
 
+  .abc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.series-name {
+    flex: 1;
+    text-align: left;
+}
+
+.match-details {
+    flex: 2;
+    text-align: center;
+}
+
+.match-time {
+    flex: 1;
+    text-align: right;
+}
+
+
+
+  
+
 
 
   

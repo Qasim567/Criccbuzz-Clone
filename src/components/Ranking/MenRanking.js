@@ -3,7 +3,6 @@ import axios from 'axios';
 import './Rankings.css';
 
 export default function MenRanking() {
-  const apikey=process.env.REACT_APP_API_KEY
   const [rankings, setRankings] = useState([]);
   const [format, setFormat] = useState('test');
   const [category, setCategory] = useState('batsmen');
@@ -18,7 +17,7 @@ export default function MenRanking() {
       url: `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/${selectedCategory}`,
       params: { formatType: selectedFormat },
       headers: {
-        'X-RapidAPI-Key': 'd3d021d474msh6cb71c870926638p115952jsn64b8a57d7652',
+        'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
         'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
       }
     };

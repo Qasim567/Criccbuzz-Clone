@@ -4,7 +4,6 @@ import './Matches.css';
 import { Link } from 'react-router-dom';
 
 export default function Matches() {
-  const apikey=process.env.REACT_APP_API_KEY
   const [matches, setMatches] = useState([]);
   const [matchState, setMatchState] = useState('live');
   const [loading, setLoading] = useState(true);
@@ -15,7 +14,7 @@ export default function Matches() {
       url: 'https://unofficial-cricbuzz.p.rapidapi.com/matches/list',
       params: { matchState: selectedMatchState },
       headers: {
-        'X-RapidAPI-Key': apikey,
+        'X-RapidAPI-Key': '9d5ecbf72fmsh80034365670a1d2p1317c3jsna96cf5494285',
         'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
       }
     };
@@ -109,7 +108,7 @@ export default function Matches() {
                             </ul>
                             {/* <Link className='link' to={`/commentary/${match.matchInfo.matchId}`}>Full Commentary</Link> */}
                             <Link className='link' to={`/scoreboard/${match.matchInfo.matchId}`}>Scoreboard</Link>
-                            <Link className='link mx-2' to={`/matchinfo/${match.matchInfo.matchId}`}>Match Info</Link>
+                            <Link className='link mx-2' to={`/matchinfo/${match.matchInfo.matchId}`}>Match Facts</Link>
                           </div>
                         </div>
                       </div>
