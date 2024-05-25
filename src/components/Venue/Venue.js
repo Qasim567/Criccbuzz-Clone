@@ -1,0 +1,84 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import Stats from './Stats'
+import VenueMatches from './VenueMatches';
+
+const Venue = () => {
+  const { id } = useParams();
+  const [venueData, setVenueData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchVenueData = async () => {
+      const options = {
+        method: 'GET',
+        url: `https://cricbuzz-cricket.p.rapidapi.com/venues/v1/${id}`,
+        headers: {
+          'X-RapidAPI-Key': '96321480c4msh8fb1fda7b752179p177346jsn3eb6f3c4078c',
+          'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
+        }
+      };
+
+      try {
+        const response = await axios.request(options);
+        setVenueData(response.data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    fetchVenueData();
+  }, [id]);
+
+  if (error) {
+    return <div className='my-4'>Error: {error}</div>;
+  }
+
+  if (!venueData) {
+    return <div className='my-4'>Loading...</div>;
+  }
+
+  return (
+    <div className='my-5'>
+      <div>
+        <h1 classNameS="col-md-6">{venueData.ground}</h1>
+      </div>
+      <div>
+        <p className="col-md-6"><strong>{venueData.city}</strong></p>
+      </div>
+      <div>
+        <img className="col-md-6" src={venueData.imageUrl} alt={`${venueData.ground} image`} />
+      </div>
+      <h3 className='my-2' style={{backgroundColor:'#ecebeb'}}>Facts</h3>
+      <div className="row mb-3">
+        <p className="col-md-2">Capacity</p>
+        <p className="col-md-10">{venueData.capacity}</p>
+      </div>
+      <div className="row mb-3">
+        <p className="col-md-2">Known as</p>
+        <p className="col-md-10">{venueData.ground}</p>
+      </div>
+      <div className="row mb-3">
+        <p className="col-md-2">Ends</p>
+        <p className="col-md-10">{venueData.ends}</p>
+      </div>
+      <div className="row mb-3">
+        <p className="col-md-2">Location</p>
+        <p className="col-md-10">{venueData.city}, {venueData.country}</p>
+      </div>
+      <div className="row mb-3">
+        <p className="col-md-2">Home to</p>
+        <p className="col-md-10">{venueData.homeTeam}</p>
+      </div>
+      <div className="row mb-3">
+        <p className="col-md-2">Time Zone</p>
+        <p className="col-md-10">{venueData.timezone}</p>
+      </div>
+      <Stats/>
+      <VenueMatches/>
+    </div>
+  );
+};
+
+export default Venue;

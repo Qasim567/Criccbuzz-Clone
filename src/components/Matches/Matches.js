@@ -7,7 +7,7 @@ export default function Matches() {
   const [matches, setMatches] = useState([]);
   const [matchState, setMatchState] = useState('live');
   const [loading, setLoading] = useState(true);
-
+  
   const fetchData = async (selectedMatchState) => {
     const options = {
       method: 'GET',
@@ -69,7 +69,6 @@ export default function Matches() {
           Upcoming
         </button>
       </div>
-      {loading && <h5 className='text-center'><b>Loading matches...</b></h5>}
       {hasNoLiveMatches() && <p className='my-4'>There are no live matches at the moment. Please check back later.</p>}
       {!loading && matches && matches.map((matchType, matchTypeIndex) => (
         <div className="my-4" key={matchTypeIndex}>

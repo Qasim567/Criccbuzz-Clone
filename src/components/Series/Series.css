@@ -22,7 +22,7 @@ table {
   }
   
   .match-state-buttons button.active::after {
-    content: '';
+  content: '';
   display: block;
   width: 100%;
   height: 2px;
@@ -30,4 +30,8 @@ table {
   position: absolute;
   bottom: 0;
   left: 0;
+  }
+
+  .text-decoration-none:hover {
+    text-decoration: underline;
   }

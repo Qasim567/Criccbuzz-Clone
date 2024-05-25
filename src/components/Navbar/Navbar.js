@@ -33,12 +33,12 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text" aria-current="page" to="" style={{ color: 'white' }}>
+                <Link className="nav-link text" aria-current="page" to="/archives" style={{ color: 'white' }}>
                   Archives
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text" aria-current="page" to="" style={{ color: 'white' }}>
+                <Link className="nav-link text" aria-current="page" to="/news" style={{ color: 'white' }}>
                   News
                 </Link>
               </li>
