@@ -5,7 +5,7 @@ import "./Player.css";
 
 const PlayerDetail = () => {
   const { id } = useParams();
-  const apikey=process.env.REACT_APP_API_KEY
+  const apikey=process.env.REACT_APP_API_KEY_1
   const [playerData, setPlayerData] = useState(null);
   const [error, setError] = useState(null);
 

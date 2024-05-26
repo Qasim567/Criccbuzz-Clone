@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Player = () => {
-  const apikey=process.env.REACT_APP_API_KEY
+  const apikey=process.env.REACT_APP_API_KEY_1
   const [searchText, setSearchText] = useState('');
   const [players, setPlayers] = useState([]);
   const navigate = useNavigate();

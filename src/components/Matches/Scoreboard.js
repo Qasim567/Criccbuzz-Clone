@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 export default function Scoreboard() {
     const { matchId } = useParams();
-    const apikey=process.env.REACT_APP_API_KEY
+    const apikey=process.env.REACT_APP_API_KEY_1
     const [scoreData, setScoreData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
