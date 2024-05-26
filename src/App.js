@@ -12,10 +12,16 @@ import Venues from './components/Series/Venues';
 import Venue from './components/Venue/Venue';
 import Player from './components/Player/Player';
 import PlayerDetail from './components/Player/PlayerDetail'
+import TeamList from './components/Teams/TeamList';
+import TeamNews from './components/Teams/TeamNews';
+import TeamSchedule from './components/Teams/TeamSchedule';
+import TeamResult from './components/Teams/TestResult';
+import TeamPlayer from './components/Teams/TeamPlayer';
 import MenRanking from './components/Ranking/MenRanking';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
+  
   return (
     <BrowserRouter>
     <Navbar/>
@@ -33,8 +39,13 @@ function App() {
       <Route exact path='/venues/:id' element={<Venues/>}></Route>
       <Route exact path='/venue/:id' element={<Venue/>}></Route>
       <Route exact path='/player' element={<Player/>}></Route>
-      <Route exact path="/player/:id" element={<PlayerDetail />} />
-      <Route exact path="/rankingMen" element={<MenRanking />} />
+      <Route exact path="/player/:id" element={<PlayerDetail/>}></Route>
+      <Route exact path="/teamlist" element={<TeamList/>}></Route>
+      <Route exact path="/teamnews/:teamId" element={<TeamNews/>}></Route>
+      <Route exact path="/teamschedule/:teamId" element={<TeamSchedule/>}></Route>
+      <Route exact path="/teamresult/:teamId" element={<TeamResult/>}></Route>
+      <Route exact path="/teamplayer/:teamId" element={<TeamPlayer/>}></Route>
+      <Route exact path="/rankingMen" element={<MenRanking/>}></Route>
     </Routes>
     </div>
     </BrowserRouter>
