@@ -12,7 +12,7 @@ export default function MatchesSchedule() {
                 method: 'GET',
                 url: `https://cricbuzz-cricket.p.rapidapi.com/schedule/v1/${selectedCategory}`,
                 headers: {
-                    'X-RapidAPI-Key': '96321480c4msh8fb1fda7b752179p177346jsn3eb6f3c4078c',
+                    'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
                     'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com',
                 },
             };

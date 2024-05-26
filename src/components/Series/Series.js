@@ -17,7 +17,7 @@ export default function Series() {
         method: 'GET',
         url: `https://cricbuzz-cricket.p.rapidapi.com/series/v1/${matchType}`,
         headers: {
-          'X-RapidAPI-Key': '96321480c4msh8fb1fda7b752179p177346jsn3eb6f3c4078c',
+          'X-RapidAPI-Key': '9d5ecbf72fmsh80034365670a1d2p1317c3jsna96cf5494285',
           'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
         }
       };

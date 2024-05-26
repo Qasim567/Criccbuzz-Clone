@@ -15,7 +15,7 @@ const Venue = () => {
         method: 'GET',
         url: `https://cricbuzz-cricket.p.rapidapi.com/venues/v1/${id}`,
         headers: {
-          'X-RapidAPI-Key': '96321480c4msh8fb1fda7b752179p177346jsn3eb6f3c4078c',
+          'X-RapidAPI-Key': '9d5ecbf72fmsh80034365670a1d2p1317c3jsna96cf5494285',
           'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
         }
       };
@@ -57,7 +57,7 @@ const Venue = () => {
       </div>
       <div className="row mb-3">
         <p className="col-md-2">Known as</p>
-        <p className="col-md-10">{venueData.ground}</p>
+        <p className="col-md-10">{venueData.knownAs}</p>
       </div>
       <div className="row mb-3">
         <p className="col-md-2">Ends</p>
@@ -75,8 +75,32 @@ const Venue = () => {
         <p className="col-md-2">Time Zone</p>
         <p className="col-md-10">{venueData.timezone}</p>
       </div>
+      <div className="row mb-3">
+        <p className="col-md-2">Floodlights</p>
+        <p className="col-md-10">{venueData.floodlights}</p>
+      </div>
+      <div className="row mb-3">
+        <p className="col-md-2">Curator</p>
+        <p className="col-md-10">{venueData.curator}</p>
+      </div>
+      <div className="row mb-3">
+        <p className="col-md-2">Ground Length</p>
+        <p className="col-md-10">{venueData.groundLength}</p>
+      </div>
+      <div className="row mb-3">
+        <p className="col-md-2">Ground Width</p>
+        <p className="col-md-10">{venueData.groundWidth}</p>
+      </div>
+      <div className="row mb-3">
+        <p className="col-md-2">Other Sports</p>
+        <p className="col-md-10">{venueData.otherSports}</p>
+      </div>
       <Stats/>
       <VenueMatches/>
+      <h3 className='my-2' style={{backgroundColor:'#ecebeb'}}>Facts</h3>
+      <div className="row mb-3">
+        <p className="col-md-12">{venueData.profile}</p>
+      </div>
     </div>
   );
 };

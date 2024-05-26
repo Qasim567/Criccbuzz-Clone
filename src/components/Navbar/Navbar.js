@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
+
   return (
     <div>
       <nav className="navbar fixed-top navbar-expand-lg" style={{ background: '#009270', width: '100%' }}>
@@ -52,24 +53,10 @@ export default function Navbar() {
                   Player
                 </Link>
               </li>
-              <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: 'white' }}>
+              <li className="nav-item"> 
+                <Link className="nav-link text" aria-current="page" to="/teamlist"  style={{ color: 'white' }}>
                   Teams
                 </Link>
-                <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" to="#">Pakistan</Link></li>
-                  <li><Link className="dropdown-item" to="#">Afghanistan</Link></li>
-                  <li><Link className="dropdown-item" to="#">Ireland</Link></li>
-                  <li><Link className="dropdown-item" to="#">India</Link></li>
-                  <li><Link className="dropdown-item" to="#">Austarlia</Link></li>
-                  <li><Link className="dropdown-item" to="#">Bangladesh</Link></li>
-                  <li><Link className="dropdown-item" to="#">Srilanka</Link></li>
-                  <li><Link className="dropdown-item" to="#">England</Link></li>
-                  <li><Link className="dropdown-item" to="#">West Indies</Link></li>
-                  <li><Link className="dropdown-item" to="#">South Africa</Link></li>
-                  <li><Link className="dropdown-item" to="#">Zimbabwe</Link></li>
-                  <li><Link className="dropdown-item" to="#">New Zeland</Link></li>
-                </ul>
               </li>
               <li className="nav-item dropdown">
                 <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: 'white' }}>

@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-const Schedule = () => {
-    const { id } = useParams();
+const TeamSchedule = () => {
+    const { teamId } = useParams();
     const [schedule, setSchedule] = useState([]);
 
     useEffect(() => {
         const fetchSchedule = async () => {
             const options = {
                 method: 'GET',
-                url: `https://cricbuzz-cricket.p.rapidapi.com/series/v1/${id}`,
+                url: `https://cricbuzz-cricket.p.rapidapi.com/teams/v1/${teamId}/schedule`,
                 headers: {
                     'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
                     'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
@@ -19,14 +19,14 @@ const Schedule = () => {
 
             try {
                 const response = await axios.request(options);
-                setSchedule(response.data.matchDetails);
+                setSchedule(response.data.teamMatchesData);
             } catch (error) {
                 console.error('Error fetching the schedule:', error);
             }
         };
 
         fetchSchedule();
-    }, [id]);
+    }, [teamId]);
 
     return (
         <div className='my-4'>
@@ -52,4 +52,4 @@ const Schedule = () => {
     );
 };
 
-export default Schedule;
+export default TeamSchedule;

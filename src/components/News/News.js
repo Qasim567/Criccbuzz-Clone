@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './News.css';
 
 const News = () => {
   const [news, setNews] = useState([]);
@@ -11,7 +10,7 @@ const News = () => {
         method: 'GET',
         url: 'https://cricbuzz-cricket.p.rapidapi.com/news/v1/index',
         headers: {
-          'X-RapidAPI-Key': '96321480c4msh8fb1fda7b752179p177346jsn3eb6f3c4078c',
+          'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
           'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
         }
       };
@@ -33,7 +32,7 @@ const News = () => {
       {news.map(({ story }) => (
         <div className="row mb-3" style={{padding:'10px'}}>
         <img className="col-md-3 themed-grid-col" 
-        src={`https://cricbuzz-cricket.p.rapidapi.com/img/v1/i1/c${story.imageId}/i.jpg`}
+        src={`https://www.cricbuzz.com/a/img/v1/300x300/i1/c${story.imageId}/team-image.jpg`}
                alt={story.coverImage.caption}/>
         <p className="col-md-6 themed-grid-col">{story.storyType}-{story.context}<br/>
         <h2>{story.hline}</h2><br/>{story.intro}</p>
