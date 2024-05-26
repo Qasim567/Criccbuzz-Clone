@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Matches.css';
 import { Link } from 'react-router-dom';
-import API_KEY from '../../config';
 
 export default function Matches() {
-  const apikey = process.env.REACT_APP_API_KEY;
+  const apikey = process.env.REACT_APP_API_KEY_1;
   const [matches, setMatches] = useState([]);
   const [matchState, setMatchState] = useState('live');
   const [matchType, setMatchType] = useState('international');
@@ -17,7 +16,7 @@ export default function Matches() {
       url: 'https://unofficial-cricbuzz.p.rapidapi.com/matches/list',
       params: { matchState: selectedMatchState },
       headers: {
-        'X-RapidAPI-Key': API_KEY,
+        'X-RapidAPI-Key': apikey,
         'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
       }
     };

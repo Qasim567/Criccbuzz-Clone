@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const TeamList = () => {
+  const apikey = process.env.REACT_APP_API_KEY_2;
   const [testTeams, setTestTeams] = useState([]);
   const [associateTeams, setAssociateTeams] = useState([]);
 
@@ -11,7 +12,7 @@ const TeamList = () => {
       method: 'GET',
       url: 'https://cricbuzz-cricket.p.rapidapi.com/teams/v1/international',
       headers: {
-        'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
+        'X-RapidAPI-Key': apikey,
         'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
       }
     };

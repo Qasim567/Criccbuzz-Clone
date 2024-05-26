@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const News = () => {
+  const apikey = process.env.REACT_APP_API_KEY_2;
   const [news, setNews] = useState([]);
 
   useEffect(() => {
@@ -10,7 +11,7 @@ const News = () => {
         method: 'GET',
         url: 'https://cricbuzz-cricket.p.rapidapi.com/news/v1/index',
         headers: {
-          'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
+          'X-RapidAPI-Key': apikey,
           'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
         }
       };

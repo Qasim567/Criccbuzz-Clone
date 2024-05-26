@@ -5,6 +5,7 @@ import Stats from './Stats'
 import VenueMatches from './VenueMatches';
 
 const Venue = () => {
+  const apikey = process.env.REACT_APP_API_KEY_2;
   const { id } = useParams();
   const [venueData, setVenueData] = useState(null);
   const [error, setError] = useState(null);
@@ -15,7 +16,7 @@ const Venue = () => {
         method: 'GET',
         url: `https://cricbuzz-cricket.p.rapidapi.com/venues/v1/${id}`,
         headers: {
-          'X-RapidAPI-Key': '9d5ecbf72fmsh80034365670a1d2p1317c3jsna96cf5494285',
+          'X-RapidAPI-Key': apikey,
           'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
         }
       };

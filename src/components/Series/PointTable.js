@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 const PointsTable = () => {
+    const apikey = process.env.REACT_APP_API_KEY_2;
     const { id } = useParams();
     const [pointsTable, setPointsTable] = useState([]);
 
@@ -12,7 +13,7 @@ const PointsTable = () => {
             method: 'GET',
             url: `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/series/${id}/points-table`,
             headers: {
-                'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
+                'X-RapidAPI-Key': apikey,
                 'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
             }
         };

@@ -4,6 +4,7 @@ import './Series.css';
 import { Link } from "react-router-dom";
 
 export default function Archives() {
+  const apikey = process.env.REACT_APP_API_KEY_2;
   const [archives, setArchives] = useState([]);
   const [seriesState, setSeriesState] = useState('international');
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
@@ -19,7 +20,7 @@ export default function Archives() {
         url: `https://cricbuzz-cricket.p.rapidapi.com/series/v1/archives/${matchType}`,
         params: { year: year },
         headers: {
-          'X-RapidAPI-Key': '9d5ecbf72fmsh80034365670a1d2p1317c3jsna96cf5494285',
+          'X-RapidAPI-Key': apikey,
           'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
         }
       };

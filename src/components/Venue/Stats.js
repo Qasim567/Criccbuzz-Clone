@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 const Stats = () => {
+  const apikey = process.env.REACT_APP_API_KEY_2;
   const { id } = useParams();
   const [venueStats, setVenueStats] = useState([]);
 
@@ -12,7 +13,7 @@ const Stats = () => {
         method: 'GET',
         url: `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/venue/${id}`,
         headers: {
-          'X-RapidAPI-Key': '9d5ecbf72fmsh80034365670a1d2p1317c3jsna96cf5494285',
+          'X-RapidAPI-Key': apikey,
           'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
         }
       };
