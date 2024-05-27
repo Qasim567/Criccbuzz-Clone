@@ -9,6 +9,8 @@ import Series from './components/Series/Series';
 import Schedule from './components/Series/Schedule';
 import PointTable from './components/Series/PointTable';
 import Venues from './components/Series/Venues';
+import Squad from './components/Series/Squad';
+import SquadList from './components/Series/SquadList';
 import Venue from './components/Venue/Venue';
 import Player from './components/Player/Player';
 import PlayerDetail from './components/Player/PlayerDetail'
@@ -37,6 +39,8 @@ function App() {
       <Route exact path='/seriesschedule/:id' element={<Schedule/>}></Route>
       <Route exact path='/pointstable/:id' element={<PointTable/>}></Route>
       <Route exact path='/venues/:id' element={<Venues/>}></Route>
+      <Route exact path='/squad/:id' element={<Squad/>}></Route>
+      <Route exact path="/squadList/:squadId/:seriesId" element={<SquadList/>}></Route>
       <Route exact path='/venue/:id' element={<Venue/>}></Route>
       <Route exact path='/player' element={<Player/>}></Route>
       <Route exact path="/player/:id" element={<PlayerDetail/>}></Route>

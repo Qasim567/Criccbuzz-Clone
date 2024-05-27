@@ -66,7 +66,8 @@ export default function Series() {
                     <p className="col-md-5 themed-grid-col">
                       <Link className="text-decoration-none" to={`/seriesschedule/${series.id}`}>Matches Schedule</Link>
                       <Link className="mx-3 text-decoration-none" to={`/pointstable/${series.id}`}>Points Table</Link>
-                      <Link className="text-decoration-none" to={`/venues/${series.id}`}>Venues</Link>
+                      <Link className="mx-3 text-decoration-none" to={`/squad/${series.id}`}>Squad</Link>
+                      <Link className="mx-3 text-decoration-none" to={`/venues/${series.id}`}>Venues</Link>
                     </p>
                 </div>
                 ))}
