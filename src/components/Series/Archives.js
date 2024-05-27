@@ -20,7 +20,7 @@ export default function Archives() {
         url: `https://cricbuzz-cricket.p.rapidapi.com/series/v1/archives/${matchType}`,
         params: { year: year },
         headers: {
-          'X-RapidAPI-Key': '56a0784ee0mshf2be9cf52cc965dp1cdd5bjsn3079f3d9fa51',
+          'X-RapidAPI-Key': apikey,
           'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
         }
       };
